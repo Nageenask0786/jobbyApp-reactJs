@@ -1,0 +1,72 @@
+.login-form-container {
+  background: #000000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-card {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+.error-message {
+  align-self: start;
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  line-height: 16px;
+  color: #ff0b37;
+  margin-left: 20px;
+}
+
+input {
+  height: 30px;
+  width: 250px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Roboto';
+  border: 2px;
+  border-style: solid;
+  border-color: #6366f1;
+}
+.website-logo {
+  height: 30px;
+  width: 50px;
+  margin-top: 20px;
+}
+.label-text {
+  color: #ffffff;
+  font-family: 'Roboto';
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.login-btn {
+  height: 30px;
+  width: 250px;
+  background-color: #4f46e5;
+  border: 0px;
+  color: #ffffff;
+  font-family: 'Roboto';
+  outline: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
+}
