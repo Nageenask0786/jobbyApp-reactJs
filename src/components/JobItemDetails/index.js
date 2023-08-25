@@ -29,7 +29,7 @@ class JobItemDetails extends Component {
   state = {
     jobItemDetails: {},
     similarJobsData: [],
-    apiStatus: apiStatusConstants.initial,
+    apiJobDetailsStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
@@ -66,12 +66,13 @@ class JobItemDetails extends Component {
       rating: each.rating,
       title: each.title,
       id: each.id,
+      imageUrl: each.image_url,
     }))
     return {updatedJobDetails, similarJobDetails}
   }
 
   getJobItemDetails = async () => {
-    this.setState({apiStatus: apiStatusConstants.inProgress})
+    this.setState({apiJobDetailsStatus: apiStatusConstants.inProgress})
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -92,10 +93,10 @@ class JobItemDetails extends Component {
       this.setState({
         jobItemDetails: updatedJobDetails,
         similarJobsData: similarJobDetails,
-        apiStatus: apiStatusConstants.success,
+        apiJobDetailsStatus: apiStatusConstants.success,
       })
     } else {
-      this.setState({apiStatus: apiStatusConstants.failure})
+      this.setState({apiJobDetailsStatus: apiStatusConstants.failure})
     }
   }
 
@@ -114,7 +115,7 @@ class JobItemDetails extends Component {
       skills,
       lifeAtCompany,
     } = jobItemDetails
-    console.log(lifeAtCompany)
+    console.log(companyLogoUrl, companyWebsiteUrl)
     const isSkillsDefined = skills !== undefined
     const isLifeatCompanyDefined = lifeAtCompany !== undefined
     const similarJobsDefined = similarJobsData !== undefined
@@ -177,23 +178,27 @@ class JobItemDetails extends Component {
           )}
         </div>
         <h1 className="description2">Similar Jobs</h1>
-        {similarJobsDefined &&
-          similarJobsData.map(each => (
-            <SimilarJobs similarJobDetails={each} key={each.id} />
-          ))}
+        <ul>
+          {similarJobsDefined &&
+            similarJobsData.map(each => (
+              <SimilarJobs similarJobDetails={each} key={each.id} />
+            ))}
+        </ul>
       </div>
     )
   }
 
   renderJoBItemDetailsFailureView = () => (
-    <div>
+    <div className="jobs-failure-view">
       <img
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
       />
-      <h1>Oops! Something Went Wrong</h1>
-      <p>We cannot seem to find the page you are looking for.</p>
-      <button type="button" onClick={this.getJobItemDetails()}>
+      <h1 className="heading">Oops! Something Went Wrong</h1>
+      <p className="description">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button type="button" onClick={this.getJobItemDetails}>
         Retry
       </button>
     </div>
@@ -206,8 +211,8 @@ class JobItemDetails extends Component {
   )
 
   renderJobItemDetailsView = () => {
-    const {apiStatus} = this.state
-    switch (apiStatus) {
+    const {apiJobDetailsStatus} = this.state
+    switch (apiJobDetailsStatus) {
       case apiStatusConstants.success:
         return this.renderJoBItemDetailsSuccessView()
       case apiStatusConstants.failure:

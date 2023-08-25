@@ -1,6 +1,16 @@
 .jobs-route-container {
   display: flex;
   flex-direction: column;
+  background-color: #000000;
+}
+
+.jobs-failure-view {
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  align-items: center;
+  font-family: 'Roboto';
+  color: #ffffff;
 }
 
 .jobs-route {
@@ -12,11 +22,12 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 768px) {
-  .jobs-route {
-    display: flex;
-  }
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 li {
   list-style-type: none;
   display: flex;
@@ -28,14 +39,17 @@ li {
   width: 20px;
   outline: none;
   cursor: pointer;
+  margin-right: 6px;
 }
 
 .checkbox-label {
   font-family: 'Roboto';
   color: #ffffff;
   font-size: 13px;
-  margin-top: 0px;
-  padding-left: 15px;
+}
+.employment-items {
+  display: flex;
+  flex-direction: row;
 }
 
 @media screen and (max-width: 767px) {
@@ -65,6 +79,11 @@ li {
   font-size: 18px;
   padding-left: 20px;
   padding-bottom: 20px;
+}
+
+.profile-failure-container {
+  display: flex;
+  background-color: #000000;
 }
 
 .employment-type-heading {
@@ -97,6 +116,7 @@ hr {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
+  width: 30%;
 }
 
 .input-element {
@@ -105,6 +125,10 @@ hr {
   cursor: pointer;
   width: 70vw;
   border-color: transparent;
+  font-family: 'Roboto';
+  color: #ffffff;
+  display: flex;
+  align-self: center;
 }
 .search-icon {
   background-color: #202020;
@@ -127,4 +151,56 @@ hr {
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+@media screen and (max-width: 767px) {
+  .search-container-large {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 20px;
+  }
+  hr {
+    width: 80%;
+    margin: 15px;
+  }
+  .jobs-route {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+
+  .side-bar {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin-left: 50px;
+  }
+  .search-container {
+    margin-left: 42%;
+    width: 400px;
+  }
+  .retry-button {
+    background-color: #4f46e5;
+    height: 30px;
+    width: 70px;
+    border: 0px;
+    border-radius: 4px;
+    font-family: 'Roboto';
+    color: #ffffff;
+  }
+  .profile-details-container {
+    width: 80%;
+    height: 200px;
+    margin: 16px;
+  }
+  .jobs-view {
+    width: 70vw;
+  }
+  .employment-type-list {
+    width: 80%;
+  }
 }

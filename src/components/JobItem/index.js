@@ -32,7 +32,7 @@ const JobItem = props => {
           <div className="company-details">
             <h1 className="title">{title}</h1>
             <div className="rating-container">
-              <AiFillStar color="#fbbf24" />
+              <AiFillStar color="#fbbf24" className="width" />
               <p className="rating">{rating}</p>
             </div>
           </div>
